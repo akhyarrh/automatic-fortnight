@@ -51,6 +51,10 @@
     <!-- Notably iOS UAs also contain Mac OS X -->
     <script csp-hash>if (/Mac OS X/.test(navigator.userAgent))document.documentElement.classList.add('apple')
     </script>
+	<script>
+  		if ("serviceWorker" in navigator)
+    	navigator.serviceWorker.register("/service-worker.js");
+	</script>
     <!-- css is inserted by optimize-html custom plugin -->
   </head>
   <body>
@@ -82,9 +86,6 @@
           {{ content | safe }}
         {% endblock %}
 
-        {% if page.url.indexOf("/posts/") > -1 %}
-          <p>Published <time datetime="{{ page.date | htmlDateString }}">{{ page.date | readableDate }}</time></p>
-        {% endif %}
       </article>
     </main>
 
