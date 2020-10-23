@@ -55,11 +55,15 @@ const markdownItAnchor = require("markdown-it-anchor");
 const localImages = require("./third_party/eleventy-plugin-local-images/.eleventy.js");
 const CleanCSS = require("clean-css");
 const GA_ID = require("./_data/metadata.json").googleAnalyticsId;
+const embedYouTube = require("eleventy-plugin-youtube-embed");
+const pluginPWA = require("eleventy-plugin-pwa");
 
 module.exports = function (eleventyConfig) {
   eleventyConfig.addPlugin(pluginRss);
   eleventyConfig.addPlugin(pluginSyntaxHighlight);
   eleventyConfig.addPlugin(pluginNavigation);
+  eleventyConfig.addPlugin(embedYouTube);
+  eleventyConfig.addPlugin(pluginPWA);
 
   eleventyConfig.addPlugin(localImages, {
     distPath: "_site",
