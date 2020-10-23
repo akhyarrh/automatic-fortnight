@@ -6,10 +6,8 @@ templateClass: tmpl-post
 
 
 {% block extraArticleHeader %}
-   {% set wc = content | striptags | wordcount %}
-   {% set wPerMinute = wc / 240 %}
    <aside>
-     {{ wPerMinute | round }} min read.
+   	 Published <time datetime="{{ page.date | htmlDateString }}">{{ page.date | readableDate }}</time>
    </aside>
 {% endblock %}
 
